@@ -1,0 +1,43 @@
+# Files to exclude from the Docker build context
+# Keeps builds fast and images small.
+
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtualenvs
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Local env (secrets!)
+.env
+.env.local
+.env.*.local
+
+# Tests + artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+
+# Data — never bake DBs into the image. Mount them at runtime instead.
+data/
+models/
+
+# Git
+.git/
+.gitignore
+
+# Docs — keep README in image for `docker inspect`-style discoverability,
+# but exclude everything else.
+docs/
+*.md
+!README.md
